@@ -1,6 +1,8 @@
 # Auto Verkoop Website
 
-Dutch MBO school project by Jaylee Wigley, built with PHP and PDO.
+Dutch MBO school project by **Jaylee Wigley**, built with PHP and PDO.
+
+This repository is publicly available as part of my portfolio and for educational/source-code review.
 
 The application demonstrates:
 
@@ -11,38 +13,85 @@ The application demonstrates:
 - administrator balance management;
 - main-administrator user-role management.
 
-## Fixes made for the public portfolio copy
+## Portfolio restoration
 
-The uploaded school archive was not fully runnable as supplied. The PHP code expected the `saldo` and `is_mainAdmin` columns, but they were missing from `autoverkoop.sql`. The SQL seed passwords were also plain text even though login uses `password_verify()`.
+The original school archive was no longer fully runnable as supplied.
 
-This public copy fixes those schema mismatches, uses proper password hashes, removes the public password-hash helper, and reads database settings from environment variables.
+The PHP application expected the `saldo` and `is_mainAdmin` database columns, but these columns were missing from the supplied `autoverkoop.sql` schema. The original SQL seed accounts also contained plain-text passwords while the application login system uses `password_verify()`.
 
-## Local MySQL setup
+For the portfolio version, these inconsistencies were corrected while preserving the original school project and its functionality.
 
-Import `autoverkoop.sql`, then set these environment variables if your local values differ:
+The portfolio copy:
 
-- `DB_DRIVER=mysql`
-- `DB_HOST=localhost`
-- `DB_PORT=3306`
-- `DB_NAME=autoverkoop`
-- `DB_USER=root`
-- `DB_PASSWORD=...`
+- restores the missing database fields;
+- uses correctly hashed demonstration passwords;
+- removes the old public password-hash helper;
+- reads database configuration from environment variables;
+- preserves the original PHP/PDO application structure.
 
-Demo accounts created by the SQL file:
+## Local development
 
-- `admin@demo.local` / `admin-demo`
-- `user@demo.local` / `user-demo`
+The project was originally developed using PHP and MySQL.
 
-## Render demo
+For local development, import `autoverkoop.sql` into a MySQL/MariaDB database and configure the required database connection values for your own development environment.
 
-`render.yaml` deploys the project as a small Docker web service using SQLite, so no separate database service is required for the portfolio demo. The demo database is recreated when the free service restarts or spins down. This is intentional: it keeps the school demo self-contained and prevents public demo data from becoming permanent.
+The repository is intended primarily for reviewing the source code and the original school project.
 
-The same demo accounts are available on Render.
+## Official live demonstration
+
+An official hosted portfolio demonstration is maintained by **Jaylee Wigley**.
+
+The hosted demonstration uses a disposable demonstration database. Information entered into the public demo should therefore not be considered permanent.
+
+The official demo exists only to demonstrate the original application's functionality as part of my portfolio.
+
+Hosting and deployment configuration for the official environment is maintained separately and is not part of the public source repository.
+
+## Demonstration accounts
+
+The official portfolio demonstration contains dedicated demonstration accounts so visitors do not need to register with real personal information.
+
+Demo Administrator:
+
+`admin@demo.local`
+
+Password:
+
+`admin-demo`
+
+Demo User:
+
+`user@demo.local`
+
+Password:
+
+`user-demo`
+
+These accounts exist only for the portfolio demonstration and must not be used for real information or transactions.
 
 ## Security scope
 
-This is a school/demo project, not a production marketplace. It should not be used for real purchases or real personal data without additional security hardening such as CSRF protection, stronger authorization review, rate limiting, validation, and production-grade database handling.
+This is a school/demo project, not a production marketplace.
 
-## License
+It should not be used for real purchases, real financial transactions, or real personal information without substantial additional production hardening.
 
-No open-source license has been selected yet. Add a license file before describing the repository as formally open-source licensed.
+Areas that would require further work for a production service include stronger authorization review, CSRF protection, rate limiting, additional input validation, production database management, monitoring, abuse protection, and broader security testing.
+
+## Copyright and usage
+
+Copyright © Jaylee Wigley. All rights reserved.
+
+This repository is publicly accessible for portfolio presentation, educational review, and source-code inspection.
+
+No permission is granted to:
+
+- host or deploy a public copy of the application;
+- redistribute the application or its source code;
+- publish modified versions;
+- use the project as the basis of another hosted service;
+- commercially exploit the project;
+- present the project or substantial parts of it as someone else's work.
+
+No open-source license has been granted.
+
+The official hosted version and any authorized deployment remain under the control of **Jaylee Wigley**.
