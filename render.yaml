@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: auto-verkoop-website
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    autoDeployTrigger: commit
+    healthCheckPath: /
+    envVars:
+      - key: DB_DRIVER
+        value: sqlite
+      - key: DB_PATH
+        value: /tmp/autoverkoop.sqlite
